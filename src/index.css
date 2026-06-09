@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-surface: #fefdf1;
+  --color-on-surface: #353a26;
+  --color-primary: #ae3c4c;
+  --color-primary-container: #ffaab0;
+  --color-secondary: #4c6a63;
+  --color-secondary-container: #d6f8ee;
+  --color-outline: #7e836b;
+  --color-outline-variant: #b7bca2;
+  --color-surface-container-low: #fafaeb;
+  --color-surface-container: #f4f5e2;
+  --color-surface-container-high: #edf0d8;
+  --color-surface-container-highest: #e7ebcf;
+  
+  --radius-xl: 3rem;
+  --radius-lg: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .slot-gradient {
+    background: linear-gradient(180deg, rgba(53, 58, 38, 1) 0%, rgba(53, 58, 38, 0) 25%, rgba(53, 58, 38, 0) 75%, rgba(53, 58, 38, 1) 100%);
+  }
+
+  .modal-layer {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
