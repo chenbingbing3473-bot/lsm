@@ -1,0 +1,40 @@
+<view class="page">
+  <view class="score-card shadow-card">
+    <view class="score-bg">⚡</view>
+    <view class="score-content">
+      <text class="score-label">{{lang === 'zh' ? '总积分' : 'Total Score'}}</text>
+      <text class="score-val">12,450 <text class="score-unit">KP</text></text>
+      <view class="streak-row">
+        <text class="streak-label">{{lang === 'zh' ? '连胜奖励' : 'Bonus streak'}}</text>
+        <text class="streak-days">7 {{lang === 'zh' ? '天' : 'days'}}</text>
+      </view>
+      <view class="progress-bar"><view class="progress-fill" /></view>
+    </view>
+  </view>
+
+  <view class="tabs section-gap">
+    <text class="tab active">{{t.latest}}</text>
+    <text class="tab muted">{{lang === 'zh' ? '热门' : 'Trending'}}</text>
+    <text class="tab muted">{{lang === 'zh' ? '关注' : 'Following'}}</text>
+  </view>
+
+  <view wx:if="{{loading}}" class="empty">{{lang === 'zh' ? '加载中...' : 'Loading...'}}</view>
+  <view wx:elif="{{recipes.length === 0}}" class="empty">{{lang === 'zh' ? '暂无菜谱' : 'No recipes'}}</view>
+
+  <view wx:else class="masonry section-gap">
+    <view class="recipe-card" wx:for="{{recipes}}" wx:key="id" bindtap="openRecipe" data-id="{{item.id}}">
+      <view class="recipe-img-wrap">
+        <image class="recipe-img" src="{{item.imageUrl}}" mode="widthFix" />
+        <view class="like-btn" catchtap="onLike" data-id="{{item.id}}">
+          <text class="{{item.isLiked ? 'heart on' : 'heart'}}">♥</text>
+        </view>
+      </view>
+      <view class="recipe-body">
+        <text class="recipe-title">{{item.displayTitle}}</text>
+        <text class="chip">{{item.kcal}} kcal</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="fab" bindtap="goPost">+</view>
+</view>

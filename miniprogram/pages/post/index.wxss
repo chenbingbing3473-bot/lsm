@@ -1,0 +1,47 @@
+.title {
+  font-size: 48rpx;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 32rpx;
+}
+
+.upload {
+  height: 320rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32rpx;
+  overflow: hidden;
+}
+
+.preview {
+  width: 100%;
+  height: 100%;
+}
+
+.upload-icon {
+  font-size: 64rpx;
+}
+
+.upload-text {
+  font-size: 26rpx;
+  color: var(--on-surface-variant);
+  margin-top: 16rpx;
+}
+
+.input {
+  background: var(--surface-container);
+  border-radius: 32rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 200rpx;
+  background: var(--surface-container);
+  border-radius: 32rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+}

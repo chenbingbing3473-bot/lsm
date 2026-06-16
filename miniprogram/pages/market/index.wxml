@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="mode-toggle">
+    <view class="mode-btn {{mode === 'find' ? 'on' : ''}}" data-mode="find" bindtap="setMode">{{t.findChef}}</view>
+    <view class="mode-btn {{mode === 'accept' ? 'on' : ''}}" data-mode="accept" bindtap="setMode">{{t.acceptOrders}}</view>
+  </view>
+
+  <block wx:if="{{mode === 'find'}}">
+    <text class="section-title">{{t.nearby}}</text>
+    <view class="chef-card" wx:for="{{chefs}}" wx:key="id">
+      <view class="chef-row">
+        <image class="chef-avatar" src="{{item.avatarUrl}}" mode="aspectFill" />
+        <view class="chef-info">
+          <text class="chef-name">{{item.displayName}}</text>
+          <text class="chef-meta">{{item.displayDistance}} {{t.away}} · {{t.response}}: {{item.displayResponse}}</text>
+          <text class="chef-tag">{{item.displaySpecialty}}</text>
+        </view>
+        <view class="rating">★ {{item.rating}}</view>
+      </view>
+      <button class="btn-outline chef-btn" data-id="{{item.id}}" bindtap="sendPlan">
+        {{lang === 'zh' ? '发送周计划' : 'SEND WEEKLY PLAN'}}
+      </button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="flex-between section-gap">
+      <text class="section-title">{{t.requests}}</text>
+      <view class="online-badge"><view class="dot" />{{t.online}}</view>
+    </view>
+
+    <view class="become-chef card section-gap">
+      <text class="chef-hat">👨‍🍳</text>
+      <text class="become-title">{{lang === 'zh' ? '成为代厨' : 'Become a Chef'}}</text>
+      <text class="become-desc">{{lang === 'zh' ? '开始接受邻居的订单并赚取积分' : 'Accept orders from neighbors'}}</text>
+      <button class="btn-dark" bindtap="openChefForm">{{lang === 'zh' ? '立即注册' : 'Register Now'}}</button>
+    </view>
+
+    <view class="request-card" wx:for="{{requests}}" wx:key="id">
+      <text class="price">${{item.price}}</text>
+      <text class="req-title">{{item.title}}</text>
+      <text class="req-desc">{{item.description}}</text>
+      <view class="tags">
+        <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+      </view>
+      <button class="btn-dark" data-id="{{item.id}}" bindtap="acceptOrder">
+        {{lang === 'zh' ? '接单' : 'Accept'}}
+      </button>
+    </view>
+  </block>
+
+  <view wx:if="{{showChefForm}}" class="modal">
+    <view class="modal-panel">
+      <view class="flex-between">
+        <text class="modal-title">{{lang === 'zh' ? '厨师注册' : 'Chef Registration'}}</text>
+        <text bindtap="closeChefForm">{{lang === 'zh' ? '取消' : 'Cancel'}}</text>
+      </view>
+      <input class="input" placeholder="{{lang === 'zh' ? '全名' : 'Full Name'}}" value="{{chefName}}" bindinput="onChefName" />
+      <picker range="{{lang === 'zh' ? specialtiesZh : specialties}}" bindchange="onSpecialtyChange">
+        <view class="input picker">{{lang === 'zh' ? '选择擅长' : 'Specialty'}}</view>
+      </picker>
+      <button class="btn-primary" bindtap="submitChef">{{lang === 'zh' ? '开始接单' : 'Start'}}</button>
+    </view>
+  </view>
+</view>

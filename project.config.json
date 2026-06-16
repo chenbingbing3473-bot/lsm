@@ -1,0 +1,13 @@
+{
+  "description": "Lean SpinMeal 微信小程序 — 用微信开发者工具打开此目录",
+  "miniprogramRoot": "miniprogram/",
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "Lean-SpinMeal",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  }
+}

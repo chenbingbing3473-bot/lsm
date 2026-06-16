@@ -1,0 +1,214 @@
+.mode-toggle {
+  display: flex;
+  background: var(--surface-container);
+  border-radius: 999rpx;
+  padding: 8rpx;
+}
+
+.mode-btn {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx;
+  font-size: 26rpx;
+  font-weight: 700;
+  border-radius: 999rpx;
+  color: var(--on-surface-variant);
+}
+
+.mode-btn.on {
+  background: var(--on-surface);
+  color: var(--surface);
+}
+
+.section-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  margin-top: 48rpx;
+}
+
+.chef-card {
+  background: var(--surface-container-low);
+  border-radius: 48rpx;
+  padding: 40rpx;
+  margin-top: 32rpx;
+}
+
+.chef-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.chef-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.chef-info {
+  flex: 1;
+}
+
+.chef-name {
+  font-size: 32rpx;
+  font-weight: 700;
+  display: block;
+}
+
+.chef-meta {
+  font-size: 22rpx;
+  color: var(--on-surface-variant);
+  display: block;
+  margin-top: 8rpx;
+}
+
+.chef-tag {
+  display: inline-block;
+  margin-top: 12rpx;
+  font-size: 20rpx;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(174, 60, 76, 0.12);
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.rating {
+  background: var(--primary);
+  color: var(--surface);
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.chef-btn {
+  margin-top: 32rpx;
+  font-size: 24rpx !important;
+}
+
+.online-badge {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  background: var(--secondary-container);
+  color: var(--secondary);
+  padding: 12rpx 24rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  background: var(--secondary);
+  border-radius: 50%;
+}
+
+.become-chef {
+  text-align: center;
+}
+
+.chef-hat {
+  font-size: 96rpx;
+  display: block;
+}
+
+.become-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  display: block;
+  margin-top: 16rpx;
+}
+
+.become-desc {
+  font-size: 26rpx;
+  color: var(--on-surface-variant);
+  display: block;
+  margin: 16rpx 0 32rpx;
+}
+
+.request-card {
+  background: var(--surface-container-low);
+  border-radius: 48rpx;
+  padding: 40rpx;
+  margin-top: 32rpx;
+  position: relative;
+}
+
+.price {
+  position: absolute;
+  top: 40rpx;
+  right: 40rpx;
+  color: var(--primary);
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.req-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  display: block;
+  padding-right: 120rpx;
+}
+
+.req-desc {
+  font-size: 24rpx;
+  color: var(--on-surface-variant);
+  display: block;
+  margin-top: 12rpx;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin: 24rpx 0;
+}
+
+.tag {
+  background: var(--surface-container-highest);
+  font-size: 20rpx;
+  font-weight: 700;
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+  color: var(--on-surface-variant);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(53, 58, 38, 0.5);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+}
+
+.modal-panel {
+  width: 100%;
+  background: var(--surface);
+  border-radius: 48rpx 48rpx 0 0;
+  padding: 48rpx;
+}
+
+.modal-title {
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.input {
+  background: var(--surface-container);
+  border-radius: 32rpx;
+  padding: 32rpx;
+  margin-top: 32rpx;
+}
+
+.picker {
+  color: var(--on-surface-variant);
+}
+
+.btn-primary {
+  margin-top: 32rpx;
+}

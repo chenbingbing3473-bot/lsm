@@ -1,0 +1,59 @@
+<view class="page">
+  <block wx:if="{{!isAuth}}">
+    <view class="login-prompt card section-gap">
+      <text class="prompt-title">{{lang === 'zh' ? '登录 Lean SpinMeal' : 'Sign in'}}</text>
+      <text class="prompt-desc">{{lang === 'zh' ? '登录后可发布菜谱、点赞、接单' : 'Login to post, like and order'}}</text>
+      <button class="btn-primary" bindtap="goLogin">{{lang === 'zh' ? '手机号登录' : 'Login'}}</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="profile-header">
+      <image class="avatar" src="{{user.avatarUrl}}" mode="aspectFill" />
+      <view>
+        <text class="name">{{user.name}}</text>
+        <text class="phone">{{user.phone}}</text>
+      </view>
+    </view>
+
+    <view class="stats grid-2 section-gap">
+      <view class="stat-card card">
+        <text class="stat-label">{{t.streak}}</text>
+        <text class="stat-val">{{user.streak || 0}}</text>
+      </view>
+      <view class="stat-card card">
+        <text class="stat-label">{{t.wallet}}</text>
+        <text class="stat-val">¥{{user.wallet || 0}}</text>
+      </view>
+    </view>
+
+    <view class="card section-gap">
+      <text class="block-title">{{lang === 'zh' ? '身体数据' : 'Body Stats'}}</text>
+      <view class="field">
+        <text class="field-label">{{lang === 'zh' ? '身高 (cm)' : 'Height'}}</text>
+        <input class="field-input" type="number" value="{{height}}" bindinput="onHeight" />
+      </view>
+      <view class="field">
+        <text class="field-label">{{lang === 'zh' ? '体重 (kg)' : 'Weight'}}</text>
+        <input class="field-input" type="number" value="{{weight}}" bindinput="onWeight" />
+      </view>
+      <view class="field">
+        <text class="field-label">{{lang === 'zh' ? '目标体重' : 'Target'}}</text>
+        <input class="field-input" type="number" value="{{targetWeight}}" bindinput="onTarget" />
+      </view>
+      <button class="btn-primary" loading="{{saving}}" bindtap="saveBody">{{lang === 'zh' ? '保存' : 'Save'}}</button>
+    </view>
+
+    <view class="card section-gap">
+      <text class="block-title">{{lang === 'zh' ? '意见反馈' : 'Feedback'}}</text>
+      <textarea class="textarea" placeholder="{{lang === 'zh' ? '写下你的建议...' : 'Your feedback...'}}" value="{{feedback}}" bindinput="onFeedback" />
+      <button class="btn-outline" bindtap="submitFeedback">{{lang === 'zh' ? '提交' : 'Submit'}}</button>
+    </view>
+
+    <button class="btn-outline logout section-gap" bindtap="logout">{{lang === 'zh' ? '退出登录' : 'Logout'}}</button>
+  </block>
+
+  <view class="lang-switch" bindtap="toggleLang">
+    {{lang === 'zh' ? 'English' : '中文'}}
+  </view>
+</view>

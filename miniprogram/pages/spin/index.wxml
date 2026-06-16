@@ -1,0 +1,81 @@
+<view class="page">
+  <view class="header-brand">
+    <text class="brand">KINETIC</text>
+  </view>
+
+  <view class="hero">
+    <text class="eyebrow">{{lang === 'zh' ? '餐食生成器' : 'Meal Generator'}}</text>
+    <text class="display-title">{{lang === 'zh' ? '旋饭' : 'Spin your next fuel.'}}</text>
+  </view>
+
+  <view class="grid-2 section-gap">
+    <view class="card">
+      <text class="label">{{t.weight}}</text>
+      <view class="weight-row">
+        <input class="weight-input" type="number" value="{{userWeight}}" bindinput="onWeightInput" />
+        <text class="unit">kg</text>
+      </view>
+    </view>
+    <view class="card diet-card">
+      <text class="label">{{t.diet}}</text>
+      <view class="diet-toggle">
+        <view class="diet-btn {{diet === 'regular' ? 'on' : ''}}" data-diet="regular" bindtap="setDiet">{{t.regular}}</view>
+        <view class="diet-btn {{diet === 'vegan' ? 'on' : ''}}" data-diet="vegan" bindtap="setDiet">{{t.vegan}}</view>
+      </view>
+    </view>
+    <view class="card budget-card">
+      <view class="flex-between">
+        <text class="label">{{t.budget}}</text>
+        <text class="budget-val">${{budget}}</text>
+      </view>
+      <slider min="10" max="100" value="{{budget}}" activeColor="#ae3c4c" bindchange="onBudgetChange" />
+    </view>
+  </view>
+
+  <view wx:if="{{spinError}}" class="error-box">{{spinError}}</view>
+
+  <view class="card-dark slot-wrap section-gap">
+    <view class="slot-grid">
+      <view class="slot-col" wx:for="{{slotIcons}}" wx:for-index="colIdx" wx:key="colIdx">
+        <view class="slot-reel {{isSpinning ? 'spinning' : ''}}" style="transform: translateY({{slotOffsets[colIdx]}}rpx);">
+          <view class="slot-cell" wx:for="{{item}}" wx:for-item="icon" wx:for-index="iconIdx" wx:key="iconIdx">
+            <text class="slot-emoji">{{icon}}</text>
+          </view>
+          <view class="slot-cell" wx:for="{{item}}" wx:for-item="icon" wx:for-index="iconIdx" wx:key="iconIdx">
+            <text class="slot-emoji">{{icon}}</text>
+          </view>
+          <view class="slot-cell" wx:for="{{item}}" wx:for-item="icon" wx:for-index="iconIdx" wx:key="iconIdx">
+            <text class="slot-emoji">{{icon}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="slot-labels">
+      <text wx:for="{{slotLabels}}" wx:key="*this" class="slot-label">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="spin-btn-wrap">
+    <button class="spin-btn" disabled="{{isSpinning}}" bindtap="handleSpin">
+      <text class="spin-icon">⚡</text>
+      <text class="spin-text">{{isSpinning ? (lang === 'zh' ? '正在摇' : 'SPINNING') : t.spinBtn}}</text>
+    </button>
+  </view>
+
+  <view wx:if="{{showResult && combo}}" class="result section-gap" bindtap="openDetail">
+    <view class="flex-between">
+      <text class="result-title">{{lang === 'zh' ? '摇号结果' : 'New Result'}}</text>
+      <text class="result-time">{{lang === 'zh' ? '刚刚' : 'Just now'}}</text>
+    </view>
+    <view class="result-card shadow-card">
+      <image class="result-img" src="{{comboImage}}" mode="aspectFill" />
+      <view class="result-body">
+        <text class="combo-name">{{comboTitle}}</text>
+        <view class="flex-row stats">
+          <text class="chip">{{comboKcal}} kcal</text>
+          <text class="chip">{{comboProtein}}g {{lang === 'zh' ? '蛋白质' : 'protein'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

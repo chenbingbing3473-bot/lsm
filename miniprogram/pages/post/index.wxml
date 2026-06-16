@@ -1,0 +1,16 @@
+<view class="page">
+  <text class="title">发布菜谱</text>
+
+  <view class="upload card" bindtap="chooseImage">
+    <image wx:if="{{imagePath}}" class="preview" src="{{imagePath}}" mode="aspectFill" />
+    <block wx:else>
+      <text class="upload-icon">📷</text>
+      <text class="upload-text">点击上传图片（可选）</text>
+    </block>
+  </view>
+
+  <input class="input" placeholder="菜名" value="{{title}}" bindinput="onTitle" />
+  <textarea class="textarea" placeholder="描述（可选）" value="{{description}}" bindinput="onDesc" />
+
+  <button class="btn-primary" loading="{{submitting}}" bindtap="submit">立即发布</button>
+</view>

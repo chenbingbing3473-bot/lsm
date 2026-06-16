@@ -1,0 +1,218 @@
+.header-brand {
+  text-align: center;
+  padding: 24rpx 0 8rpx;
+}
+
+.brand {
+  font-size: 40rpx;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.hero {
+  margin-top: 16rpx;
+}
+
+.label {
+  font-size: 20rpx;
+  font-weight: 700;
+  color: var(--outline);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.weight-row {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 16rpx;
+}
+
+.weight-input {
+  width: 120rpx;
+  font-size: 56rpx;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.unit {
+  font-size: 28rpx;
+  opacity: 0.6;
+  margin-bottom: 8rpx;
+  margin-left: 8rpx;
+}
+
+.diet-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.diet-toggle {
+  display: flex;
+  background: var(--surface-container);
+  border-radius: 999rpx;
+  padding: 8rpx;
+  margin-top: 24rpx;
+}
+
+.diet-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 20rpx;
+  font-weight: 700;
+  padding: 16rpx 0;
+  border-radius: 999rpx;
+  color: var(--on-surface-variant);
+}
+
+.diet-btn.on {
+  background: var(--on-surface);
+  color: var(--surface);
+}
+
+.budget-card {
+  grid-column: span 2;
+}
+
+.budget-val {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.error-box {
+  margin-top: 32rpx;
+  background: rgba(174, 60, 76, 0.1);
+  color: var(--primary);
+  text-align: center;
+  padding: 24rpx;
+  border-radius: 32rpx;
+  font-weight: 700;
+  font-size: 26rpx;
+}
+
+.slot-wrap {
+  padding: 48rpx 32rpx 32rpx;
+}
+
+.slot-grid {
+  display: flex;
+  height: 384rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.slot-col {
+  flex: 1;
+  overflow: hidden;
+}
+
+.slot-reel {
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.slot-reel.spinning {
+  animation: reel-spin 0.5s linear infinite;
+}
+
+@keyframes reel-spin {
+  from { transform: translateY(0); }
+  to { transform: translateY(-640rpx); }
+}
+
+.slot-cell {
+  height: 128rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot-emoji {
+  font-size: 64rpx;
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.slot-labels {
+  display: flex;
+  margin-top: 24rpx;
+}
+
+.slot-label {
+  flex: 1;
+  text-align: center;
+  font-size: 16rpx;
+  font-weight: 800;
+  color: rgba(254, 253, 241, 0.4);
+  text-transform: uppercase;
+}
+
+.spin-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: -60rpx;
+  position: relative;
+  z-index: 10;
+}
+
+.spin-btn {
+  width: 192rpx !important;
+  height: 192rpx !important;
+  border-radius: 50% !important;
+  background: var(--primary) !important;
+  color: var(--surface) !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 24rpx 60rpx rgba(174, 60, 76, 0.35);
+  padding: 0 !important;
+  border: none !important;
+}
+
+.spin-icon {
+  font-size: 56rpx;
+}
+
+.spin-text {
+  font-size: 20rpx;
+  font-weight: 900;
+  margin-top: 4rpx;
+}
+
+.result-title {
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.result-time {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.result-card {
+  margin-top: 24rpx;
+  background: var(--surface-container-low);
+  border-radius: 48rpx;
+  overflow: hidden;
+}
+
+.result-img {
+  width: 100%;
+  height: 320rpx;
+}
+
+.result-body {
+  padding: 32rpx;
+}
+
+.combo-name {
+  font-size: 32rpx;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.stats {
+  gap: 16rpx;
+}

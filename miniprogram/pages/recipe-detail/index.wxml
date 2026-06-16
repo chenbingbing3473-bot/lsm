@@ -1,0 +1,35 @@
+<view class="detail-page" wx:if="{{recipe}}">
+  <image class="hero-img" src="{{imageUrl}}" mode="aspectFill" />
+  <view class="back-btn" bindtap="back">←</view>
+
+  <view class="content">
+    <view class="flex-between">
+      <text class="title">{{title}}</text>
+      <view class="kcal-box">
+        <text class="kcal-num">{{kcal}}</text>
+        <text class="kcal-label">Kcal</text>
+      </view>
+    </view>
+
+    <view class="section">
+      <text class="section-label">{{lang === 'zh' ? '味道描述' : 'Taste'}}</text>
+      <text class="taste">"{{taste}}"</text>
+    </view>
+
+    <view class="actions">
+      <button class="btn-primary flex-1" bindtap="onLike">
+        {{recipe.isLiked ? (lang === 'zh' ? '已点赞' : 'Liked') : (lang === 'zh' ? '点赞' : 'Like')}}
+      </button>
+    </view>
+
+    <view class="section">
+      <text class="section-label">{{lang === 'zh' ? '评论' : 'Comments'}}</text>
+      <view class="comment" wx:for="{{recipe.comments}}" wx:key="index">
+        <text class="comment-user">{{item.user}}</text>
+        <text class="comment-text">{{lang === 'zh' && item.text_zh ? item.text_zh : item.text}}</text>
+      </view>
+      <input class="comment-input" placeholder="{{lang === 'zh' ? '写评论...' : 'Comment...'}}" value="{{commentText}}" bindinput="onComment" />
+      <button class="btn-outline" bindtap="submitComment">{{lang === 'zh' ? '发送' : 'Send'}}</button>
+    </view>
+  </view>
+</view>

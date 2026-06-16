@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/spin/index",
+    "pages/community/index",
+    "pages/market/index",
+    "pages/profile/index",
+    "pages/login/index",
+    "pages/recipe-detail/index",
+    "pages/post/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "Lean SpinMeal",
+    "navigationBarBackgroundColor": "#fefdf1",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fefdf1",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7e836b",
+    "selectedColor": "#ae3c4c",
+    "backgroundColor": "#fefdf1",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/spin/index", "text": "摇号" },
+      { "pagePath": "pages/community/index", "text": "社区" },
+      { "pagePath": "pages/market/index", "text": "代厨" },
+      { "pagePath": "pages/profile/index", "text": "我的" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

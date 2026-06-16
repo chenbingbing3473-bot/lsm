@@ -1,0 +1,160 @@
+.score-card {
+  background: var(--primary);
+  color: var(--surface);
+  border-radius: 48rpx;
+  padding: 48rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-bg {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  font-size: 200rpx;
+  opacity: 0.1;
+}
+
+.score-label {
+  font-size: 22rpx;
+  font-weight: 700;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.score-val {
+  font-size: 72rpx;
+  font-weight: 800;
+  display: block;
+  margin-top: 8rpx;
+}
+
+.score-unit {
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.streak-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.progress-bar {
+  height: 24rpx;
+  background: rgba(254, 253, 241, 0.2);
+  border-radius: 999rpx;
+  margin-top: 16rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 85%;
+  height: 100%;
+  background: var(--surface);
+  border-radius: 999rpx;
+}
+
+.tabs {
+  display: flex;
+  gap: 48rpx;
+}
+
+.tab {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.tab.active {
+  color: var(--primary);
+  border-bottom: 8rpx solid var(--primary);
+  padding-bottom: 8rpx;
+}
+
+.tab.muted {
+  color: rgba(53, 58, 38, 0.35);
+}
+
+.masonry {
+  column-count: 2;
+  column-gap: 32rpx;
+}
+
+.recipe-card {
+  break-inside: avoid;
+  background: var(--surface-container-low);
+  border-radius: 48rpx;
+  overflow: hidden;
+  margin-bottom: 32rpx;
+  border: 2rpx solid rgba(183, 188, 162, 0.15);
+}
+
+.recipe-img {
+  width: 100%;
+  display: block;
+}
+
+.recipe-img-wrap {
+  position: relative;
+}
+
+.like-btn {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  width: 64rpx;
+  height: 64rpx;
+  background: rgba(254, 253, 241, 0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart {
+  color: var(--primary);
+  font-size: 28rpx;
+}
+
+.heart.on {
+  font-weight: 900;
+}
+
+.recipe-body {
+  padding: 32rpx;
+}
+
+.recipe-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16rpx;
+  line-height: 1.3;
+}
+
+.empty {
+  text-align: center;
+  padding: 80rpx 0;
+  color: var(--on-surface-variant);
+}
+
+.fab {
+  position: fixed;
+  right: 48rpx;
+  bottom: 160rpx;
+  width: 112rpx;
+  height: 112rpx;
+  background: var(--primary);
+  color: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64rpx;
+  font-weight: 300;
+  box-shadow: 0 16rpx 40rpx rgba(174, 60, 76, 0.35);
+  z-index: 100;
+}

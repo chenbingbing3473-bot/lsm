@@ -1,0 +1,150 @@
+/** Lean SpinMeal 设计系统 — 与 Web 版 index.css 一致 */
+page {
+  --surface: #fefdf1;
+  --on-surface: #353a26;
+  --primary: #ae3c4c;
+  --primary-container: #ffaab0;
+  --secondary: #4c6a63;
+  --secondary-container: #d6f8ee;
+  --outline: #7e836b;
+  --outline-variant: #b7bca2;
+  --surface-container-low: #fafaeb;
+  --surface-container: #f4f5e2;
+  --surface-container-high: #edf0d8;
+  --surface-container-highest: #e7ebcf;
+  --on-surface-variant: #7e836b;
+
+  background: var(--surface);
+  color: var(--on-surface);
+  font-size: 28rpx;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+view, text, button, input, textarea {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 0 48rpx 180rpx;
+  background: var(--surface);
+}
+
+.eyebrow {
+  font-size: 22rpx;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 8rpx;
+}
+
+.display-title {
+  font-size: 88rpx;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+}
+
+.card {
+  background: var(--surface-container-low);
+  border-radius: 48rpx;
+  padding: 48rpx;
+}
+
+.card-dark {
+  background: var(--on-surface);
+  border-radius: 48rpx;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--primary) !important;
+  color: var(--surface) !important;
+  border-radius: 999rpx !important;
+  font-weight: 700 !important;
+  border: none !important;
+}
+
+.btn-dark {
+  background: var(--on-surface) !important;
+  color: var(--surface) !important;
+  border-radius: 999rpx !important;
+  font-weight: 700 !important;
+  border: none !important;
+}
+
+.btn-outline {
+  background: transparent !important;
+  color: var(--on-surface) !important;
+  border: 4rpx solid var(--on-surface) !important;
+  border-radius: 999rpx !important;
+  font-weight: 700 !important;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 20rpx;
+  font-weight: 700;
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+  background: var(--secondary-container);
+  color: var(--secondary);
+}
+
+.badge-primary {
+  background: var(--primary);
+  color: var(--surface);
+  border-radius: 999rpx;
+  padding: 8rpx 24rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.section-gap {
+  margin-top: 64rpx;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32rpx;
+}
+
+.text-muted {
+  color: var(--on-surface-variant);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.font-black {
+  font-weight: 800;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.rounded-xl {
+  border-radius: 48rpx;
+}
+
+.shadow-card {
+  box-shadow: 0 24rpx 60rpx rgba(53, 58, 38, 0.12);
+}
