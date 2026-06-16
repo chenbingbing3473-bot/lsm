@@ -10,6 +10,7 @@ const User = require('../models/User');
 const Recipe = require('../models/Recipe');
 const Chef = require('../models/Chef');
 const Order = require('../models/Order');
+const { SITE_IMAGES, migrateExternalImages } = require('../utils/siteImages');
 
 const SEED_RECIPES = [
   {
@@ -20,7 +21,7 @@ const SEED_RECIPES = [
     description_zh: '蒸糙米饭，富含膳食纤维的主食。',
     taste: 'Nutty and wholesome brown rice.',
     taste_zh: '坚果香气的健康糙米饭。',
-    image: 'https://images.unsplash.com/photo-1516684732162-798a0062be75?auto=format&fit=crop&q=80&w=800',
+    image: SITE_IMAGES.staple,
     kcal: 220, protein: 5, carbs: 45, fat: 2, isVegan: true,
     ingredientsList: [{ name: 'Brown Rice', name_zh: '糙米', weight: '150g' }],
   },
@@ -30,7 +31,7 @@ const SEED_RECIPES = [
     title_zh: '全麦意面',
     description: 'Al dente whole wheat pasta.',
     description_zh: '有嚼劲的全麦意面。',
-    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=800',
+    image: SITE_IMAGES.staple,
     kcal: 280, protein: 10, carbs: 52, fat: 3, isVegan: true,
     ingredientsList: [{ name: 'Whole Wheat Pasta', name_zh: '全麦意面', weight: '80g' }],
   },
@@ -40,7 +41,7 @@ const SEED_RECIPES = [
     title_zh: '香煎鸡胸肉',
     description: 'Lean high-protein chicken breast.',
     description_zh: '低脂高蛋白鸡胸肉。',
-    image: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&q=80&w=800',
+    image: SITE_IMAGES.protein,
     kcal: 320, protein: 48, carbs: 0, fat: 8, isVegan: false,
     ingredientsList: [{ name: 'Chicken Breast', name_zh: '鸡胸肉', weight: '200g' }],
   },
@@ -50,7 +51,7 @@ const SEED_RECIPES = [
     title_zh: '烤三文鱼',
     description: 'Omega-3 rich salmon fillet.',
     description_zh: '富含 Omega-3 的三文鱼。',
-    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=800',
+    image: SITE_IMAGES.protein,
     kcal: 350, protein: 36, carbs: 0, fat: 18, isVegan: false,
     ingredientsList: [{ name: 'Salmon Fillet', name_zh: '三文鱼', weight: '150g' }],
   },
@@ -60,7 +61,7 @@ const SEED_RECIPES = [
     title_zh: '味噌豆腐',
     description: 'Pan-seared tofu with miso glaze.',
     description_zh: '味噌釉面煎豆腐。',
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800',
+    image: SITE_IMAGES.protein,
     kcal: 180, protein: 16, carbs: 8, fat: 9, isVegan: true,
     ingredientsList: [{ name: 'Firm Tofu', name_zh: '硬豆腐', weight: '150g' }],
   },
@@ -70,7 +71,7 @@ const SEED_RECIPES = [
     title_zh: '超级绿叶沙拉',
     description: 'Kale, avocado and mixed seeds.',
     description_zh: '羽衣甘蓝、牛油果与混合种子。',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800',
+    image: SITE_IMAGES.vegetable,
     kcal: 180, protein: 6, carbs: 12, fat: 12, isVegan: true,
     ingredientsList: [
       { name: 'Kale', name_zh: '羽衣甘蓝', weight: '80g' },
@@ -83,7 +84,7 @@ const SEED_RECIPES = [
     title_zh: '清蒸西兰花',
     description: 'Simple steamed broccoli florets.',
     description_zh: '简单清蒸西兰花。',
-    image: 'https://images.unsplash.com/photo-1459411552885-841a9a7e7337?auto=format&fit=crop&q=80&w=800',
+    image: SITE_IMAGES.vegetable,
     kcal: 55, protein: 4, carbs: 8, fat: 1, isVegan: true,
     ingredientsList: [{ name: 'Broccoli', name_zh: '西兰花', weight: '150g' }],
   },
@@ -93,8 +94,7 @@ const SEED_RECIPES = [
     title_zh: '排毒能量碗',
     description: 'Complete balanced meal bowl.',
     description_zh: '均衡营养完整餐。',
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800',
-    kcal: 420, protein: 22, carbs: 38, fat: 16, isVegan: true,
+    image: SITE_IMAGES.combo,
     ingredientsList: [
       { name: 'Quinoa', name_zh: '藜麦', weight: '80g' },
       { name: 'Chickpeas', name_zh: '鹰嘴豆', weight: '60g' },
@@ -104,6 +104,8 @@ const SEED_RECIPES = [
 
 async function runSeed({ disconnect = false } = {}) {
   console.log('[Seed] 开始写入种子数据');
+
+  await migrateExternalImages();
 
   // 演示用户
   let user = await User.findOne({ phone: '13800138000' });
@@ -146,7 +148,7 @@ async function runSeed({ disconnect = false } = {}) {
         user: user._id,
         name: 'Chef Marcus',
         name_zh: '马库斯厨师',
-        avatar: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=400',
+        avatar: SITE_IMAGES.chef,
         distance: '1.2 miles',
         distance_zh: '1.2 英里',
         rating: 4.9,
@@ -158,7 +160,7 @@ async function runSeed({ disconnect = false } = {}) {
       {
         name: 'Chef Elena',
         name_zh: '埃琳娜厨师',
-        avatar: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&q=80&w=400',
+        avatar: SITE_IMAGES.chef,
         distance: '0.8 miles',
         distance_zh: '0.8 英里',
         rating: 4.8,

@@ -4,6 +4,7 @@
 const express = require('express');
 const Chef = require('../models/Chef');
 const { authRequired } = require('../middleware/auth');
+const { SITE_IMAGES } = require('../utils/siteImages');
 const { ok, fail } = require('../utils/response');
 
 const router = express.Router();
@@ -35,9 +36,8 @@ router.post('/register', authRequired, async (req, res) => {
       specialty: specialty || 'HOME COOKING',
       specialty_zh: specialty_zh || specialty || '家常菜',
       avatar:
-        avatar ||
         req.user.avatar ||
-        'https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&q=80&w=400',
+        SITE_IMAGES.chef,
       distance: '0.5 miles',
       distance_zh: '0.5 英里',
       rating: 5.0,

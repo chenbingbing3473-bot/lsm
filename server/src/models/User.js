@@ -6,6 +6,7 @@
  */
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const { SITE_IMAGES } = require('../utils/siteImages');
 
 const userSchema = new mongoose.Schema(
   {
@@ -29,7 +30,7 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400',
+      default: SITE_IMAGES.user,
     },
     height: { type: Number, min: 0 }, // cm
     weight: { type: Number, min: 0 }, // kg 当前体重

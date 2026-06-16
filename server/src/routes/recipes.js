@@ -8,6 +8,7 @@ const { authOptional, authRequired } = require('../middleware/auth');
 const { upload, handleUploadError } = require('../middleware/upload');
 const { analyzeFoodImage } = require('../services/qwenVL');
 const config = require('../config/env');
+const { SITE_IMAGES } = require('../utils/siteImages');
 const { ok, fail } = require('../utils/response');
 
 const router = express.Router();
@@ -94,7 +95,7 @@ router.post(
 
       const imageUrl = req.file
         ? `${config.publicBaseUrl}/uploads/${req.file.filename}`
-        : 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800';
+        : SITE_IMAGES.combo;
 
       const recipe = await Recipe.create({
         title: title.trim(),
@@ -153,9 +154,7 @@ router.post('/manual', authRequired, async (req, res) => {
       title_zh: title_zh || title,
       description: description || '',
       description_zh: description_zh || description || '',
-      image:
-        image ||
-        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800',
+      image: image || SITE_IMAGES.combo,
       kcal: Number(kcal) || 0,
       protein: Number(protein) || 0,
       carbs: Number(carbs) || 0,
